@@ -1,0 +1,5 @@
+---
+applications:
+ - name: ibm-test-0825
+   random-route: true
+   memory: 256M
