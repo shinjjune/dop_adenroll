@@ -6,3 +6,4 @@
 
 ## dop 191016 
  * sequelize로 안함
+ * forEach 문제 
