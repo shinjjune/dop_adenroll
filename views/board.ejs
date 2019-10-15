@@ -17,7 +17,7 @@
     </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" />
 
             <table class="table table-hover">
                 <thead>
@@ -26,15 +26,20 @@
                         <th>companyName</th>
                         <th>startDate</th>
                         <th>endDate</th>
+                        <th>prize</th>
+                        <th>UserNum</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <%= ad_form %>
                     <% ad_form.forEach((item) => { %>
                     <tr>
                         <td><a href="#"><%= item.title %></a></td>
                         <td><%= item.companyName %></td>
                         <td><%= item.startDate %></td>
                         <td><%= item.endDate %></td>
+                        <td><%= item.tag %></td>
+                        <td><%= item.missionUserNum %></td>
                     </tr>
                     <% }); %>
                 </tbody>
