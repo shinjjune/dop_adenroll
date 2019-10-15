@@ -44,7 +44,7 @@ $(document).ready(function () {
         const missionUserNum = $('#missionUserNum').val();
         const content = $('#content').val();
         const tag = $('#tag').val();
-        const inputGroupFile = $('#inputGroupFile').val(); //주의
+        const inputGroupFile = $('#inputGroupFile').val();
         const startDate = $('#startDate').val();
         const endDate = $('#endDate').val();
         const survey = $('#survey').val();
