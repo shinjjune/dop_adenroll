@@ -1,5 +1,4 @@
 <% layout('layout/layout')%>
-<script src="/js/boardHandler.js"></script>
 
 <style>
     body {
@@ -19,74 +18,27 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">광고상태</th>
-                <th scope="col">광고명</th>
-                <th scope="col">광고요청일</th>
-                <th scope="col">진행현황</th>
-                <th scope="col">광고시작일</th>
-                <th scope="col">광고마감일</th>
-                <th scope="col">관리</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>1</td> <!-- 광고 Num -->
-                <th scope="row"><a href="#" class="badge badge-secondary">마감</a></th>
-                <td>test1</td> <!-- 광고명 -->
-                <td>19-09-01</td> <!-- 광고요청일 -->
-                <td>10/10</td> <!-- 진행현황 -->
-                <td>19-09-02</td> <!-- 광고시작일 -->
-                <td>19-09-03</td> <!-- 광고마감일 -->
-                <td> <!-- 관리버튼 -->
-                    <button class="btn btn-sm btn-primary">재등록</button>
-                </td> 
-                </tr>
-        
-                <tr>
-                <td>2</td> <!-- 광고 Num -->
-                <th scope="row"><a href="#" class="badge badge-primary">진행중</a></th>
-                <td>test2</td> <!-- 광고명 -->
-                <td>19-10-8</td> <!-- 광고요청일 -->
-                <td>4/15</td> <!-- 진행현황 -->
-                <td>19-10-9</td> <!-- 광고시작일 -->
-                <td>19-10-10</td> <!-- 광고마감일 -->
-                <td> <!-- 관리버튼 -->
-                    <button class="btn btn-sm btn-primary">마감</button> /
-                    <button class="btn btn-sm btn-primary">재등록</button>
-                </td> 
-                </tr>
-        
-                <tr>
-                <td>3</td> <!-- 광고 Num -->                    
-                <th scope="row"><a href="#" class="badge badge-success">승인대기</a></th>
-                <td>test3</td> <!-- 광고명 -->
-                <td>19-10-10</td> <!-- 광고요청일 -->
-                <td>0/25</td> <!-- 진행현황 -->
-                <td>19-10-11</td> <!-- 광고시작일 -->
-                <td>19-10-12</td> <!-- 광고마감일 -->
-                <td> <!-- 관리버튼 -->
-                    <button class="btn btn-sm btn-primary">요청취소</button>
-                </td>
 
-                <tr>
-                <td>4</td> <!-- 광고 Num -->
-                <th scope="row"><a href="#" class="badge badge-danger">승인거절</a></th>
-                <td>test4</td> <!-- 광고명 -->
-                <td>19-10-5</td> <!-- 광고요청일 -->
-                <td>0/5</td> <!-- 진행현황 -->
-                <td>19-10-7</td> <!-- 광고시작일 -->
-                <td>19-10-8</td> <!-- 광고마감일 -->
-                <td> <!-- 관리버튼 -->
-                    <button class="btn btn-sm btn-primary">수정</button> /
-                    <button class="btn btn-sm btn-primary">재등록요청</button>
-                </td> 
-                </tr>
-            </tbody>
-        </table>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>companyName</th>
+                        <th>startDate</th>
+                        <th>endDate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% ad_form.forEach((item) => { %>
+                    <tr>
+                        <td><a href="#"><%= item.title %></a></td>
+                        <td><%= item.companyName %></td>
+                        <td><%= item.startDate %></td>
+                        <td><%= item.endDate %></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
     </div>
 
 
@@ -161,12 +113,10 @@
                     <label for="tag">상품</label>
                     <input type="text" class="form-control" name="tag" id="tag" placeholder="상품을 입력해 주세요">
                 </div>
-                <div class="input-group mb-3">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile" accept="image/jpeg" multiple="multiple">
-                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose images file</label>
+                    <div class="filebox bs3-primary preview-image">
+                        <input type="file" accept="image/*" id="inputGroupFile" class="upload-hidden">
                     </div>
-                </div>
+                        <label class="caution">* 파일은 jpg, png, gif 파일만 허용됩니다. </label><br />
                 <div class="mb-3">
                     <label for="startDate">날짜 선택</label><br>
                     <div class="ui-datepicker" style="float:left">
@@ -193,21 +143,20 @@
                     </form>
                     <br>
                     <form>
-                    <a>2.</a><input type="checkbox" name="surveyCheck" onclick="checkable(this.form)" ></input>
-                    <input type="text" class="form-control" name="survey" id="survey" disabled>
+                    <a>2.</a><input type="checkbox" name="surveyCheck2" onclick="checkable2(this.form)" ></input>
+                    <input type="text" class="form-control" name="survey2" id="survey2" disabled>
                     </form>
                     <br>
                     <form>
-                    <a>3.</a><input type="checkbox" name="surveyCheck" onclick="checkable(this.form)"></input>
-                    <input type="text" class="form-control" name="survey" id="survey" disabled>
+                    <a>3.</a><input type="checkbox" name="surveyCheck3" onclick="checkable3(this.form)"></input>
+                    <input type="text" class="form-control" name="survey3" id="survey3" disabled>
                     </form>
                     <br>
                 </div>
             </form>
         
             <div >
-            <button type="submit" class="btn btn-sm btn-primary" id="btnSave">저장</button>
-            <!--<input action="action" type="button" style="float:right;" id="btnSave" value="Send" />-->
+                <button type="button" class="btn btn-sm btn-primary" id="btnSave">저장</button>
                 <button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
             </div>
         </div>
